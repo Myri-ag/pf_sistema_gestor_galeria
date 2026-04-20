@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: obras-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: obras
+  template:
+    metadata:
+      labels:
+        app: obras
+    spec:
+      containers:
+      - name: obras-container
+        image: registry.digitalocean.com/galeria-reg/artistas:obras-v4
+        ports:
+        - containerPort: 4000 # <-- CAMBIAR A 4000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: obras-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: obras
+  ports:
+    - protocol: TCP
+      port: 80         # Este se queda igual (es para el navegador)
+      targetPort: 4000 # <-- CAMBIAR A 4000

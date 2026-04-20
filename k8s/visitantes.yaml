@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visitantes-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: visitantes
+  template:
+    metadata:
+      labels:
+        app: visitantes
+    spec:
+      containers:
+      - name: visitantes-container
+        image: registry.digitalocean.com/galeria-reg/artistas:visitantes-v4 # Usando el tag 'visitantes'
+        ports:
+        - containerPort: 5000 # Ajusta si este servicio usa otro puerto
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: visitantes-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: visitantes
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000

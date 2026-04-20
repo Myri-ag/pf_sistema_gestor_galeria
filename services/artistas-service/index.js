@@ -43,9 +43,9 @@ app.get('/', (req, res) => {
     <body>
         <div class="sidebar">
             <h2>MENÚ</h2>
-            <a href="http://localhost:8080" class="active">Artistas</a>
-            <a href="http://localhost:8081">Obras</a>
-            <a href="http://localhost:8082">Visitantes</a>
+            <a href="http://45.55.98.199" class="active">Artistas</a>
+            <a href="http://129.212.147.117">Obras</a>
+            <a href="http://174.138.117.102">Visitantes</a>
         </div>
         <div class="main-content">
             <header>PF_GALERIA</header>

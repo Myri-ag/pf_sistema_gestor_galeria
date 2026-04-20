@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artistas-deployment
+spec:
+  replicas: 2 # Esto crea dos copias para que tu galería nunca se caiga
+  selector:
+    matchLabels:
+      app: artistas
+  template:
+    metadata:
+      labels:
+        app: artistas
+    spec:
+      containers:
+      - name: artistas-container
+        # Asegúrate de que 'galeria-reg' sea el nombre exacto de tu Registry
+        image: registry.digitalocean.com/galeria-reg/artistas:latest
+        ports:
+        - containerPort: 3000 # El puerto donde corre tu app de Node.js
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: artistas-service
+spec:
+  type: LoadBalancer # Esto le pide a DigitalOcean una IP pública real
+  selector:
+    app: artistas
+  ports:
+    - protocol: TCP
+      port: 80         # Puerto por el que entrarás desde el navegador
+      targetPort: 3000 # Puerto al que se redirige dentro del contenedor
