@@ -15,7 +15,7 @@ spec:
       containers:
       - name: artistas-container
         # Asegúrate de que 'galeria-reg' sea el nombre exacto de tu Registry
-        image: registry.digitalocean.com/galeria-reg/artistas:latest
+        image: registry.digitalocean.com/galeria-reg/artistas:v2
         ports:
         - containerPort: 3000 # El puerto donde corre tu app de Node.js
 ---

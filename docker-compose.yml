@@ -1,0 +1,32 @@
+services:
+  # El "Cerebro" de datos
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  artistas:
+    build: ./services/artistas-service
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  obras:
+    build: ./services/obras-service
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+
+  visitantes:
+    build: ./services/visitantes-service
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+volumes:
+  mongo-data: # Esto evita que los datos se borren al apagar Docker

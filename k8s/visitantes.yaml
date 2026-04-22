@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: visitantes-container
-        image: registry.digitalocean.com/galeria-reg/artistas:visitantes-v4 # Usando el tag 'visitantes'
+        image: registry.digitalocean.com/galeria-reg/visitantes:v2 # Usando el tag 'visitantes'
         ports:
         - containerPort: 5000 # Ajusta si este servicio usa otro puerto
 ---

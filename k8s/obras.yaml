@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: obras-container
-        image: registry.digitalocean.com/galeria-reg/artistas:obras-v4
+        image: registry.digitalocean.com/galeria-reg/obras:v2
         ports:
         - containerPort: 4000 # <-- CAMBIAR A 4000
 ---
