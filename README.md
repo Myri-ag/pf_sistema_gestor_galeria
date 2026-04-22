@@ -33,17 +33,23 @@ Cada servicio cuenta con su propia lógica de negocio y se conecta a una instanc
 * Docker instalado.
 * Kubectl configurado con acceso al clúster.
 
+<br>
+
 ### Ejecución en Local (Desarrollo)
 Para levantar el entorno completo de desarrollo con un solo comando:
 
 ```bash
 docker-compose up --build
 ````
-La aplicación estará disponible en:
+<br>
+
+### La aplicación estará disponible en:
 
 * **Artistas:** http://localhost:3000
 * **Obras:** http://localhost:4000
 * **Visitantes:** http://localhost:5000
+
+<br>
 
 ### Despliegue en la Nube (Producción)
 Para aplicar la configuración en el clúster de DigitalOcean:
